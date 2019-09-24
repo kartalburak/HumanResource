@@ -1,0 +1,1065 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Database_CreateScript" xml:space="preserve">
+    <value>USE [HumanResource]
+GO
+/****** Object:  Table [dbo].[Activity]    Script Date: 24.09.2019 13:50:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Activity](
+	[ActivityID] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeId] [int] NOT NULL,
+	[ActivityName] [nvarchar](100) NULL,
+	[ActivityDescription] [nvarchar](500) NULL,
+	[ActivityDate] [datetime2](7) NOT NULL,
+	[ActivityCapacity] [int] NOT NULL,
+	[ActivityStatus] [bit] NOT NULL,
+	[ActivityIsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Activity] PRIMARY KEY CLUSTERED 
+(
+	[ActivityID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ActivityBranch]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ActivityBranch](
+	[ActivityId] [int] NOT NULL,
+	[BranchId] [int] NOT NULL,
+ CONSTRAINT [PK_ActivityBranch] PRIMARY KEY CLUSTERED 
+(
+	[ActivityId] ASC,
+	[BranchId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ActivityDepartment]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ActivityDepartment](
+	[ActivityId] [int] NOT NULL,
+	[DepartmentId] [int] NOT NULL,
+ CONSTRAINT [PK_ActivityDepartment] PRIMARY KEY CLUSTERED 
+(
+	[ActivityId] ASC,
+	[DepartmentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ActivityEmployee]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ActivityEmployee](
+	[ActivityId] [int] NOT NULL,
+	[EmployeeId] [int] NOT NULL,
+ CONSTRAINT [PK_ActivityEmployee] PRIMARY KEY CLUSTERED 
+(
+	[ActivityId] ASC,
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Advertisement]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Advertisement](
+	[AdvertisementID] [int] IDENTITY(1,1) NOT NULL,
+	[AdvertisementTitle] [nvarchar](100) NULL,
+	[AdvertisementName] [nvarchar](100) NULL,
+	[AdvertisementBeginDate] [datetime2](7) NOT NULL,
+	[AdvertisementEndDate] [datetime2](7) NOT NULL,
+	[AdvertisementJobDescription] [nvarchar](max) NULL,
+	[AdvertisementDescription] [nvarchar](max) NULL,
+	[AdvertisementExperience] [nvarchar](500) NULL,
+	[AdvertisementEducationLevel] [nvarchar](100) NULL,
+	[AdvertisementPositionLevel] [nvarchar](100) NULL,
+	[AdvertisementWayOfWorking] [nvarchar](50) NULL,
+	[AdvertisementPersonelNumber] [int] NOT NULL,
+	[AdvertisementCountry] [nvarchar](50) NULL,
+	[AdvertisementCity] [nvarchar](50) NULL,
+	[AdvertisementMilitary] [nvarchar](50) NULL,
+	[AdvertisementViewsCount] [int] NOT NULL,
+	[AdvertisementIsStatus] [bit] NOT NULL,
+	[AdvertisementIsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Advertisement] PRIMARY KEY CLUSTERED 
+(
+	[AdvertisementID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AdvertisementBranch]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AdvertisementBranch](
+	[AdvertisementId] [int] NOT NULL,
+	[BranchId] [int] NOT NULL,
+ CONSTRAINT [PK_AdvertisementBranch] PRIMARY KEY CLUSTERED 
+(
+	[AdvertisementId] ASC,
+	[BranchId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AdvertisementDepartment]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AdvertisementDepartment](
+	[AdvertisementId] [int] NOT NULL,
+	[DepartmentId] [int] NOT NULL,
+ CONSTRAINT [PK_AdvertisementDepartment] PRIMARY KEY CLUSTERED 
+(
+	[AdvertisementId] ASC,
+	[DepartmentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Announcement]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Announcement](
+	[AnnouncementID] [int] IDENTITY(1,1) NOT NULL,
+	[AnnouncementName] [nvarchar](100) NOT NULL,
+	[AnnouncementDescription] [nvarchar](100) NOT NULL,
+	[AnnouncementBeginDate] [datetime2](7) NOT NULL,
+	[AnnouncementEndDate] [datetime2](7) NOT NULL,
+	[AnnouncementTitle] [nvarchar](100) NOT NULL,
+	[AnnouncementContent] [nvarchar](max) NOT NULL,
+	[AnnouncementStatus] [bit] NOT NULL,
+	[AnnouncementIsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Announcement] PRIMARY KEY CLUSTERED 
+(
+	[AnnouncementID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AnnouncementBranch]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AnnouncementBranch](
+	[AnnouncementId] [int] NOT NULL,
+	[BranchId] [int] NOT NULL,
+ CONSTRAINT [PK_AnnouncementBranch] PRIMARY KEY CLUSTERED 
+(
+	[AnnouncementId] ASC,
+	[BranchId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AnnouncementDepartment]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AnnouncementDepartment](
+	[AnnouncementId] [int] NOT NULL,
+	[DepartmentId] [int] NOT NULL,
+ CONSTRAINT [PK_AnnouncementDepartment] PRIMARY KEY CLUSTERED 
+(
+	[AnnouncementId] ASC,
+	[DepartmentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AnnouncementEmployee]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AnnouncementEmployee](
+	[AnnouncementId] [int] NOT NULL,
+	[EmployeeId] [int] NOT NULL,
+ CONSTRAINT [PK_AnnouncementEmployee] PRIMARY KEY CLUSTERED 
+(
+	[AnnouncementId] ASC,
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Branch]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Branch](
+	[BranchId] [int] IDENTITY(1,1) NOT NULL,
+	[BranchName] [nvarchar](100) NOT NULL,
+	[BranchCode] [nvarchar](20) NOT NULL,
+	[BranchDescription] [nvarchar](200) NULL,
+	[BranchTelephone] [nvarchar](50) NOT NULL,
+	[BranchAddress] [nvarchar](500) NOT NULL,
+	[BranchFax] [nvarchar](100) NULL,
+	[BranchStatus] [bit] NOT NULL,
+	[BranchIsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Branch] PRIMARY KEY CLUSTERED 
+(
+	[BranchId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[BranchDepartment]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BranchDepartment](
+	[BranchId] [int] NOT NULL,
+	[DepartmentId] [int] NOT NULL,
+ CONSTRAINT [PK_BranchDepartment] PRIMARY KEY CLUSTERED 
+(
+	[BranchId] ASC,
+	[DepartmentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[BranchEducation]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BranchEducation](
+	[BranchId] [int] NOT NULL,
+	[EducationId] [int] NOT NULL,
+ CONSTRAINT [PK_BranchEducation] PRIMARY KEY CLUSTERED 
+(
+	[BranchId] ASC,
+	[EducationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Department]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Department](
+	[DepartmentId] [int] IDENTITY(1,1) NOT NULL,
+	[DepartmentName] [nvarchar](100) NOT NULL,
+	[DepartmentDescription] [nvarchar](200) NULL,
+	[DepartmentManager] [nvarchar](100) NULL,
+	[DepartmentStatus] [bit] NOT NULL,
+	[DepartmentIsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED 
+(
+	[DepartmentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DepartmentEducation]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DepartmentEducation](
+	[DepartmentId] [int] NOT NULL,
+	[EducationId] [int] NOT NULL,
+ CONSTRAINT [PK_DepartmentEducation] PRIMARY KEY CLUSTERED 
+(
+	[DepartmentId] ASC,
+	[EducationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Education]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Education](
+	[EducationID] [int] IDENTITY(1,1) NOT NULL,
+	[EducationName] [nvarchar](100) NOT NULL,
+	[EducationBeginDate] [datetime2](7) NOT NULL,
+	[EducationEndDate] [datetime2](7) NOT NULL,
+	[EducationCapacity] [int] NOT NULL,
+	[EducationTrainerTitle] [nvarchar](100) NULL,
+	[EducationTrainerName] [nvarchar](50) NULL,
+	[EducationTrainerSurname] [nvarchar](50) NULL,
+	[EducationTrainerTelephone] [nvarchar](11) NULL,
+	[EducationsNotes] [nvarchar](max) NULL,
+	[EducationIsMandatory] [bit] NOT NULL,
+	[EducationStatus] [bit] NOT NULL,
+	[EducationIsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Education] PRIMARY KEY CLUSTERED 
+(
+	[EducationID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EducationEmployee]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EducationEmployee](
+	[EmployeeId] [int] NOT NULL,
+	[EducationId] [int] NOT NULL,
+ CONSTRAINT [PK_EducationEmployee] PRIMARY KEY CLUSTERED 
+(
+	[EducationId] ASC,
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Employee]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Employee](
+	[EmployeeId] [int] IDENTITY(1,1) NOT NULL,
+	[IncapacityReportId] [int] NOT NULL,
+	[EmployeeCode] [nvarchar](50) NOT NULL,
+	[EmployeeUsername] [nvarchar](50) NOT NULL,
+	[EmployeePassword] [nvarchar](100) NOT NULL,
+	[EmployeeTitle] [nvarchar](100) NOT NULL,
+	[EmployeeName] [nvarchar](20) NOT NULL,
+	[EmployeeSurname] [nvarchar](20) NOT NULL,
+	[EmployeeBirthdate] [datetime2](7) NOT NULL,
+	[EmployeeEmail] [nvarchar](20) NOT NULL,
+	[EmployeeCompanyMail] [nvarchar](20) NULL,
+	[EmployeeBirthplace] [nvarchar](20) NOT NULL,
+	[EmployeeTelephone1] [nvarchar](11) NOT NULL,
+	[EmployeeTelephone2] [nvarchar](11) NULL,
+	[EmployeeIsSmoke] [bit] NOT NULL,
+	[EmployeeBloodGroup] [nvarchar](20) NOT NULL,
+	[EmployeeTc] [nvarchar](11) NOT NULL,
+	[EmployeeMarialStatus] [bit] NOT NULL,
+	[EmployeeGender] [nvarchar](10) NOT NULL,
+	[EmployeeCountry] [nvarchar](20) NOT NULL,
+	[EmployeeCity] [nvarchar](20) NOT NULL,
+	[EmployeeStreet] [nvarchar](20) NULL,
+	[EmployeeBuildNo] [nvarchar](20) NULL,
+	[EmployeePostcode] [nvarchar](10) NULL,
+	[EmployeeMilitaryDate] [datetime2](7) NOT NULL,
+	[EmployeeMilitaryStatus] [nvarchar](20) NOT NULL,
+	[EmployeeBankName] [nvarchar](20) NULL,
+	[EmployeeIban] [nvarchar](20) NULL,
+	[EmployeeBankCode] [nvarchar](20) NULL,
+	[EmployeeIsDrivingLicense] [bit] NOT NULL,
+	[EmployeeDrivingLicenseName] [nvarchar](20) NULL,
+	[EmployeeImagePath] [nvarchar](250) NULL,
+	[EmployeeRegisteredDate] [datetime2](7) NOT NULL,
+	[EmployeeWifeNameSurname] [nvarchar](100) NULL,
+	[EmployeeWifeBirthdate] [datetime2](7) NOT NULL,
+	[EmployeeWifeTelephone] [nvarchar](11) NULL,
+	[EmployeeWifeTCKN] [nvarchar](11) NULL,
+	[EmployeeSSKFirstBeginDate] [datetime2](7) NOT NULL,
+	[EmployeeWorkBeginDate] [datetime2](7) NOT NULL,
+	[EmployeeWorkOutDate] [datetime2](7) NOT NULL,
+	[EmployeeLanguage1] [nvarchar](20) NULL,
+	[EmployeeLanguage2] [nvarchar](20) NULL,
+	[EmployeeLanguage3] [nvarchar](20) NULL,
+	[EmployeeReferenceNameSurname] [nvarchar](100) NULL,
+	[EmployeeReferenceNotes] [nvarchar](500) NULL,
+	[EmployeeReferenceTelephone] [nvarchar](11) NULL,
+	[EmployeeChildrenCount] [int] NOT NULL,
+	[EmployeeGraduationSchool] [nvarchar](100) NULL,
+	[EmployeeGraduationDepartment] [nvarchar](50) NULL,
+	[EmployeeGraduationScore] [decimal](18, 2) NOT NULL,
+	[EmployeeManager] [nvarchar](100) NULL,
+	[EmployeeDisabilitySituation] [bit] NOT NULL,
+	[EmployeeSGKNumber] [nvarchar](50) NULL,
+	[EmployeeNotes] [nvarchar](max) NULL,
+	[EmployeeStatus] [bit] NOT NULL,
+	[EmployeeIsDeleted] [bit] NOT NULL,
+	[AdvertisementID] [int] NULL,
+	[DepartmentId] [int] NULL,
+	[BranchId] [int] NULL,
+ CONSTRAINT [PK_Employee] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EmployeeMessage]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmployeeMessage](
+	[EmployeeId] [int] NOT NULL,
+	[MessageId] [int] NOT NULL,
+ CONSTRAINT [PK_EmployeeMessage] PRIMARY KEY CLUSTERED 
+(
+	[MessageId] ASC,
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EmployeeMission]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmployeeMission](
+	[EmployeeId] [int] NOT NULL,
+	[MissionId] [int] NOT NULL,
+ CONSTRAINT [PK_EmployeeMission] PRIMARY KEY CLUSTERED 
+(
+	[MissionId] ASC,
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EmployeePermit]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmployeePermit](
+	[EmployeeId] [int] NOT NULL,
+	[PermitId] [int] NOT NULL,
+ CONSTRAINT [PK_EmployeePermit] PRIMARY KEY CLUSTERED 
+(
+	[PermitId] ASC,
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EmployeeRating]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmployeeRating](
+	[EmployeeRatingId] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeRatingEvaluative] [nvarchar](max) NULL,
+	[EmployeeRatingRateDate] [datetime2](7) NOT NULL,
+	[EmployeeRatingResult] [nvarchar](max) NULL,
+	[EmployeeRatingStatus] [bit] NOT NULL,
+	[EmployeeIsDeleted] [bit] NOT NULL,
+	[EmployeeId] [int] NULL,
+ CONSTRAINT [PK_EmployeeRating] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeRatingId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EmployeeReference]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmployeeReference](
+	[EmployeeId] [int] NOT NULL,
+	[ReferenceId] [int] NOT NULL,
+ CONSTRAINT [PK_EmployeeReference] PRIMARY KEY CLUSTERED 
+(
+	[ReferenceId] ASC,
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[IncapacityReport]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[IncapacityReport](
+	[IncapacityReportId] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeId] [int] NOT NULL,
+	[VisaDate] [datetime2](7) NOT NULL,
+	[Hospital] [nvarchar](max) NULL,
+	[Polyclinic] [nvarchar](max) NULL,
+	[PolyclinicDate] [datetime2](7) NOT NULL,
+	[Diagnostic] [nvarchar](max) NULL,
+	[BeginDate] [datetime2](7) NOT NULL,
+	[EndDate] [datetime2](7) NOT NULL,
+	[NextControl] [datetime2](7) NOT NULL,
+	[Description] [nvarchar](max) NULL,
+	[JobAccident] [bit] NOT NULL,
+	[JobDisease] [bit] NOT NULL,
+	[Disease] [bit] NOT NULL,
+	[PeriodicControl] [bit] NOT NULL,
+	[PatientNameSurname] [nvarchar](max) NULL,
+	[RegistrationNumber] [nvarchar](max) NULL,
+	[Diploma] [nvarchar](max) NULL,
+	[PatentNumber] [nvarchar](max) NULL,
+	[IncapacityReportIsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_IncapacityReport] PRIMARY KEY CLUSTERED 
+(
+	[IncapacityReportId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[JobApplication]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[JobApplication](
+	[ApplicationID] [int] IDENTITY(1,1) NOT NULL,
+	[NameSurname] [nvarchar](max) NULL,
+	[Birthplace] [nvarchar](max) NULL,
+	[Birthdate] [datetime2](7) NOT NULL,
+	[Gender] [nvarchar](max) NULL,
+	[ChildNumber] [nvarchar](max) NULL,
+	[ChildAge] [nvarchar](max) NULL,
+	[WifeName] [nvarchar](max) NULL,
+	[WifeEducation] [nvarchar](max) NULL,
+	[WifeJob] [nvarchar](max) NULL,
+	[WifeJobAddress] [nvarchar](max) NULL,
+	[JobPhone] [nvarchar](max) NULL,
+	[HomePhone] [nvarchar](max) NULL,
+	[Phone] [nvarchar](max) NULL,
+	[Nationality] [nvarchar](max) NULL,
+	[MilitaryStatus] [nvarchar](max) NULL,
+	[IsDrivingLicense] [bit] NOT NULL,
+	[LicenseClass] [nvarchar](max) NULL,
+	[IsCriminalRecord] [bit] NOT NULL,
+	[LicenseDate] [datetime2](7) NOT NULL,
+	[SchoolName] [nvarchar](max) NULL,
+	[SchoolCity] [nvarchar](max) NULL,
+	[SchoolDegree] [nvarchar](max) NULL,
+	[ExpectedSalary] [float] NOT NULL,
+	[JobApplicationStatus] [bit] NOT NULL,
+	[JobApplicationIsDeleted] [bit] NOT NULL,
+	[BranchId] [int] NULL,
+	[EmployeeId] [int] NULL,
+ CONSTRAINT [PK_JobApplication] PRIMARY KEY CLUSTERED 
+(
+	[ApplicationID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[JobApplicationLanguage]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[JobApplicationLanguage](
+	[JobApplicationId] [int] NOT NULL,
+	[LanguageId] [int] NOT NULL,
+ CONSTRAINT [PK_JobApplicationLanguage] PRIMARY KEY CLUSTERED 
+(
+	[JobApplicationId] ASC,
+	[LanguageId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[JobApplicationReference]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[JobApplicationReference](
+	[JobApplicationId] [int] NOT NULL,
+	[ReferenceId] [int] NOT NULL,
+ CONSTRAINT [PK_JobApplicationReference] PRIMARY KEY CLUSTERED 
+(
+	[JobApplicationId] ASC,
+	[ReferenceId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Language]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Language](
+	[LanguageID] [int] IDENTITY(1,1) NOT NULL,
+	[LanguageName] [nvarchar](max) NULL,
+	[LanguageRead] [nvarchar](max) NULL,
+	[LanguageWrite] [nvarchar](max) NULL,
+	[LanguageSpeak] [nvarchar](max) NULL,
+	[LanguageUnderstand] [nvarchar](max) NULL,
+	[LanguageStatus] [bit] NOT NULL,
+	[LanguageIsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Language] PRIMARY KEY CLUSTERED 
+(
+	[LanguageID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Log]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Log](
+	[LogId] [int] IDENTITY(1,1) NOT NULL,
+	[LogDate] [datetime2](7) NOT NULL,
+	[LogMessage] [nvarchar](50) NULL,
+	[LogActionName] [nvarchar](50) NULL,
+	[LogControllerName] [nvarchar](50) NULL,
+	[LogType] [nvarchar](50) NULL,
+	[LogStatus] [bit] NOT NULL,
+	[LogIsDeleted] [bit] NOT NULL,
+	[EmployeeId] [int] NULL,
+ CONSTRAINT [PK_Log] PRIMARY KEY CLUSTERED 
+(
+	[LogId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Message]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Message](
+	[MessageId] [int] IDENTITY(1,1) NOT NULL,
+	[MessageContent] [nvarchar](max) NULL,
+	[MessageSendDate] [datetime2](7) NOT NULL,
+	[MessageTitle] [nvarchar](100) NULL,
+	[MessageSubject] [nvarchar](100) NULL,
+	[MessageIsRead] [bit] NOT NULL,
+	[MessageStatus] [bit] NOT NULL,
+	[MessageIsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Message] PRIMARY KEY CLUSTERED 
+(
+	[MessageId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Mission]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Mission](
+	[MissionId] [int] IDENTITY(1,1) NOT NULL,
+	[Missionary] [nvarchar](100) NULL,
+	[MissionBeginDate] [datetime2](7) NOT NULL,
+	[MissionEndDate] [datetime2](7) NOT NULL,
+	[MissionNotes] [nvarchar](max) NULL,
+	[Description] [nvarchar](max) NULL,
+	[MissionStatus] [bit] NOT NULL,
+	[MissionIsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Mission] PRIMARY KEY CLUSTERED 
+(
+	[MissionId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Permit]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Permit](
+	[PermitId] [int] IDENTITY(1,1) NOT NULL,
+	[PermitBeginDate] [datetime2](7) NOT NULL,
+	[PermitEndDate] [datetime2](7) NOT NULL,
+	[PermitReason] [nvarchar](max) NULL,
+	[PermitRequestDate] [datetime2](7) NOT NULL,
+	[PermitConfirm] [bit] NOT NULL,
+	[PermitNotes] [nvarchar](max) NULL,
+	[PermitStatus] [bit] NOT NULL,
+	[PermitIsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Permit] PRIMARY KEY CLUSTERED 
+(
+	[PermitId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Reference]    Script Date: 24.09.2019 13:50:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Reference](
+	[ReferenceID] [int] IDENTITY(1,1) NOT NULL,
+	[ReferenceName] [nvarchar](100) NOT NULL,
+	[ReferenceSurname] [nvarchar](100) NOT NULL,
+	[ReferenceCompanyName] [nvarchar](100) NOT NULL,
+	[ReferenceAddress] [nvarchar](max) NULL,
+	[ReferenceTelephone] [nvarchar](11) NOT NULL,
+	[ReferenceTitle] [nvarchar](100) NOT NULL,
+	[IsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Reference] PRIMARY KEY CLUSTERED 
+(
+	[ReferenceID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[ActivityBranch]  WITH CHECK ADD  CONSTRAINT [FK_ActivityBranch_Activity_ActivityId] FOREIGN KEY([ActivityId])
+REFERENCES [dbo].[Activity] ([ActivityID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ActivityBranch] CHECK CONSTRAINT [FK_ActivityBranch_Activity_ActivityId]
+GO
+ALTER TABLE [dbo].[ActivityBranch]  WITH CHECK ADD  CONSTRAINT [FK_ActivityBranch_Branch_BranchId] FOREIGN KEY([BranchId])
+REFERENCES [dbo].[Branch] ([BranchId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ActivityBranch] CHECK CONSTRAINT [FK_ActivityBranch_Branch_BranchId]
+GO
+ALTER TABLE [dbo].[ActivityDepartment]  WITH CHECK ADD  CONSTRAINT [FK_ActivityDepartment_Activity_ActivityId] FOREIGN KEY([ActivityId])
+REFERENCES [dbo].[Activity] ([ActivityID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ActivityDepartment] CHECK CONSTRAINT [FK_ActivityDepartment_Activity_ActivityId]
+GO
+ALTER TABLE [dbo].[ActivityDepartment]  WITH CHECK ADD  CONSTRAINT [FK_ActivityDepartment_Department_DepartmentId] FOREIGN KEY([DepartmentId])
+REFERENCES [dbo].[Department] ([DepartmentId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ActivityDepartment] CHECK CONSTRAINT [FK_ActivityDepartment_Department_DepartmentId]
+GO
+ALTER TABLE [dbo].[ActivityEmployee]  WITH CHECK ADD  CONSTRAINT [FK_ActivityEmployee_Activity_ActivityId] FOREIGN KEY([ActivityId])
+REFERENCES [dbo].[Activity] ([ActivityID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ActivityEmployee] CHECK CONSTRAINT [FK_ActivityEmployee_Activity_ActivityId]
+GO
+ALTER TABLE [dbo].[ActivityEmployee]  WITH CHECK ADD  CONSTRAINT [FK_ActivityEmployee_Employee_EmployeeId] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employee] ([EmployeeId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ActivityEmployee] CHECK CONSTRAINT [FK_ActivityEmployee_Employee_EmployeeId]
+GO
+ALTER TABLE [dbo].[AdvertisementBranch]  WITH CHECK ADD  CONSTRAINT [FK_AdvertisementBranch_Advertisement_AdvertisementId] FOREIGN KEY([AdvertisementId])
+REFERENCES [dbo].[Advertisement] ([AdvertisementID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AdvertisementBranch] CHECK CONSTRAINT [FK_AdvertisementBranch_Advertisement_AdvertisementId]
+GO
+ALTER TABLE [dbo].[AdvertisementBranch]  WITH CHECK ADD  CONSTRAINT [FK_AdvertisementBranch_Branch_BranchId] FOREIGN KEY([BranchId])
+REFERENCES [dbo].[Branch] ([BranchId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AdvertisementBranch] CHECK CONSTRAINT [FK_AdvertisementBranch_Branch_BranchId]
+GO
+ALTER TABLE [dbo].[AdvertisementDepartment]  WITH CHECK ADD  CONSTRAINT [FK_AdvertisementDepartment_Advertisement_AdvertisementId] FOREIGN KEY([AdvertisementId])
+REFERENCES [dbo].[Advertisement] ([AdvertisementID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AdvertisementDepartment] CHECK CONSTRAINT [FK_AdvertisementDepartment_Advertisement_AdvertisementId]
+GO
+ALTER TABLE [dbo].[AdvertisementDepartment]  WITH CHECK ADD  CONSTRAINT [FK_AdvertisementDepartment_Department_DepartmentId] FOREIGN KEY([DepartmentId])
+REFERENCES [dbo].[Department] ([DepartmentId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AdvertisementDepartment] CHECK CONSTRAINT [FK_AdvertisementDepartment_Department_DepartmentId]
+GO
+ALTER TABLE [dbo].[AnnouncementBranch]  WITH CHECK ADD  CONSTRAINT [FK_AnnouncementBranch_Announcement_AnnouncementId] FOREIGN KEY([AnnouncementId])
+REFERENCES [dbo].[Announcement] ([AnnouncementID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AnnouncementBranch] CHECK CONSTRAINT [FK_AnnouncementBranch_Announcement_AnnouncementId]
+GO
+ALTER TABLE [dbo].[AnnouncementBranch]  WITH CHECK ADD  CONSTRAINT [FK_AnnouncementBranch_Branch_BranchId] FOREIGN KEY([BranchId])
+REFERENCES [dbo].[Branch] ([BranchId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AnnouncementBranch] CHECK CONSTRAINT [FK_AnnouncementBranch_Branch_BranchId]
+GO
+ALTER TABLE [dbo].[AnnouncementDepartment]  WITH CHECK ADD  CONSTRAINT [FK_AnnouncementDepartment_Announcement_AnnouncementId] FOREIGN KEY([AnnouncementId])
+REFERENCES [dbo].[Announcement] ([AnnouncementID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AnnouncementDepartment] CHECK CONSTRAINT [FK_AnnouncementDepartment_Announcement_AnnouncementId]
+GO
+ALTER TABLE [dbo].[AnnouncementDepartment]  WITH CHECK ADD  CONSTRAINT [FK_AnnouncementDepartment_Department_DepartmentId] FOREIGN KEY([DepartmentId])
+REFERENCES [dbo].[Department] ([DepartmentId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AnnouncementDepartment] CHECK CONSTRAINT [FK_AnnouncementDepartment_Department_DepartmentId]
+GO
+ALTER TABLE [dbo].[AnnouncementEmployee]  WITH CHECK ADD  CONSTRAINT [FK_AnnouncementEmployee_Announcement_AnnouncementId] FOREIGN KEY([AnnouncementId])
+REFERENCES [dbo].[Announcement] ([AnnouncementID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AnnouncementEmployee] CHECK CONSTRAINT [FK_AnnouncementEmployee_Announcement_AnnouncementId]
+GO
+ALTER TABLE [dbo].[AnnouncementEmployee]  WITH CHECK ADD  CONSTRAINT [FK_AnnouncementEmployee_Employee_EmployeeId] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employee] ([EmployeeId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AnnouncementEmployee] CHECK CONSTRAINT [FK_AnnouncementEmployee_Employee_EmployeeId]
+GO
+ALTER TABLE [dbo].[BranchDepartment]  WITH CHECK ADD  CONSTRAINT [FK_BranchDepartment_Branch_BranchId] FOREIGN KEY([BranchId])
+REFERENCES [dbo].[Branch] ([BranchId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[BranchDepartment] CHECK CONSTRAINT [FK_BranchDepartment_Branch_BranchId]
+GO
+ALTER TABLE [dbo].[BranchDepartment]  WITH CHECK ADD  CONSTRAINT [FK_BranchDepartment_Department_DepartmentId] FOREIGN KEY([DepartmentId])
+REFERENCES [dbo].[Department] ([DepartmentId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[BranchDepartment] CHECK CONSTRAINT [FK_BranchDepartment_Department_DepartmentId]
+GO
+ALTER TABLE [dbo].[BranchEducation]  WITH CHECK ADD  CONSTRAINT [FK_BranchEducation_Branch_BranchId] FOREIGN KEY([BranchId])
+REFERENCES [dbo].[Branch] ([BranchId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[BranchEducation] CHECK CONSTRAINT [FK_BranchEducation_Branch_BranchId]
+GO
+ALTER TABLE [dbo].[BranchEducation]  WITH CHECK ADD  CONSTRAINT [FK_BranchEducation_Education_EducationId] FOREIGN KEY([EducationId])
+REFERENCES [dbo].[Education] ([EducationID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[BranchEducation] CHECK CONSTRAINT [FK_BranchEducation_Education_EducationId]
+GO
+ALTER TABLE [dbo].[DepartmentEducation]  WITH CHECK ADD  CONSTRAINT [FK_DepartmentEducation_Department_DepartmentId] FOREIGN KEY([DepartmentId])
+REFERENCES [dbo].[Department] ([DepartmentId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[DepartmentEducation] CHECK CONSTRAINT [FK_DepartmentEducation_Department_DepartmentId]
+GO
+ALTER TABLE [dbo].[DepartmentEducation]  WITH CHECK ADD  CONSTRAINT [FK_DepartmentEducation_Education_EducationId] FOREIGN KEY([EducationId])
+REFERENCES [dbo].[Education] ([EducationID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[DepartmentEducation] CHECK CONSTRAINT [FK_DepartmentEducation_Education_EducationId]
+GO
+ALTER TABLE [dbo].[EducationEmployee]  WITH CHECK ADD  CONSTRAINT [FK_EducationEmployee_Education_EducationId] FOREIGN KEY([EducationId])
+REFERENCES [dbo].[Education] ([EducationID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[EducationEmployee] CHECK CONSTRAINT [FK_EducationEmployee_Education_EducationId]
+GO
+ALTER TABLE [dbo].[EducationEmployee]  WITH CHECK ADD  CONSTRAINT [FK_EducationEmployee_Employee_EmployeeId] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employee] ([EmployeeId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[EducationEmployee] CHECK CONSTRAINT [FK_EducationEmployee_Employee_EmployeeId]
+GO
+ALTER TABLE [dbo].[Employee]  WITH CHECK ADD  CONSTRAINT [FK_Employee_Advertisement_AdvertisementID] FOREIGN KEY([AdvertisementID])
+REFERENCES [dbo].[Advertisement] ([AdvertisementID])
+GO
+ALTER TABLE [dbo].[Employee] CHECK CONSTRAINT [FK_Employee_Advertisement_AdvertisementID]
+GO
+ALTER TABLE [dbo].[Employee]  WITH CHECK ADD  CONSTRAINT [FK_Employee_Branch_BranchId] FOREIGN KEY([BranchId])
+REFERENCES [dbo].[Branch] ([BranchId])
+GO
+ALTER TABLE [dbo].[Employee] CHECK CONSTRAINT [FK_Employee_Branch_BranchId]
+GO
+ALTER TABLE [dbo].[Employee]  WITH CHECK ADD  CONSTRAINT [FK_Employee_Department_DepartmentId] FOREIGN KEY([DepartmentId])
+REFERENCES [dbo].[Department] ([DepartmentId])
+GO
+ALTER TABLE [dbo].[Employee] CHECK CONSTRAINT [FK_Employee_Department_DepartmentId]
+GO
+ALTER TABLE [dbo].[EmployeeMessage]  WITH CHECK ADD  CONSTRAINT [FK_EmployeeMessage_Employee_EmployeeId] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employee] ([EmployeeId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[EmployeeMessage] CHECK CONSTRAINT [FK_EmployeeMessage_Employee_EmployeeId]
+GO
+ALTER TABLE [dbo].[EmployeeMessage]  WITH CHECK ADD  CONSTRAINT [FK_EmployeeMessage_Message_MessageId] FOREIGN KEY([MessageId])
+REFERENCES [dbo].[Message] ([MessageId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[EmployeeMessage] CHECK CONSTRAINT [FK_EmployeeMessage_Message_MessageId]
+GO
+ALTER TABLE [dbo].[EmployeeMission]  WITH CHECK ADD  CONSTRAINT [FK_EmployeeMission_Employee_EmployeeId] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employee] ([EmployeeId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[EmployeeMission] CHECK CONSTRAINT [FK_EmployeeMission_Employee_EmployeeId]
+GO
+ALTER TABLE [dbo].[EmployeeMission]  WITH CHECK ADD  CONSTRAINT [FK_EmployeeMission_Mission_MissionId] FOREIGN KEY([MissionId])
+REFERENCES [dbo].[Mission] ([MissionId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[EmployeeMission] CHECK CONSTRAINT [FK_EmployeeMission_Mission_MissionId]
+GO
+ALTER TABLE [dbo].[EmployeePermit]  WITH CHECK ADD  CONSTRAINT [FK_EmployeePermit_Employee_EmployeeId] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employee] ([EmployeeId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[EmployeePermit] CHECK CONSTRAINT [FK_EmployeePermit_Employee_EmployeeId]
+GO
+ALTER TABLE [dbo].[EmployeePermit]  WITH CHECK ADD  CONSTRAINT [FK_EmployeePermit_Permit_PermitId] FOREIGN KEY([PermitId])
+REFERENCES [dbo].[Permit] ([PermitId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[EmployeePermit] CHECK CONSTRAINT [FK_EmployeePermit_Permit_PermitId]
+GO
+ALTER TABLE [dbo].[EmployeeRating]  WITH CHECK ADD  CONSTRAINT [FK_EmployeeRating_Employee_EmployeeId] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employee] ([EmployeeId])
+GO
+ALTER TABLE [dbo].[EmployeeRating] CHECK CONSTRAINT [FK_EmployeeRating_Employee_EmployeeId]
+GO
+ALTER TABLE [dbo].[EmployeeReference]  WITH CHECK ADD  CONSTRAINT [FK_EmployeeReference_Employee_EmployeeId] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employee] ([EmployeeId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[EmployeeReference] CHECK CONSTRAINT [FK_EmployeeReference_Employee_EmployeeId]
+GO
+ALTER TABLE [dbo].[EmployeeReference]  WITH CHECK ADD  CONSTRAINT [FK_EmployeeReference_Reference_ReferenceId] FOREIGN KEY([ReferenceId])
+REFERENCES [dbo].[Reference] ([ReferenceID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[EmployeeReference] CHECK CONSTRAINT [FK_EmployeeReference_Reference_ReferenceId]
+GO
+ALTER TABLE [dbo].[JobApplication]  WITH CHECK ADD  CONSTRAINT [FK_JobApplication_Branch_BranchId] FOREIGN KEY([BranchId])
+REFERENCES [dbo].[Branch] ([BranchId])
+GO
+ALTER TABLE [dbo].[JobApplication] CHECK CONSTRAINT [FK_JobApplication_Branch_BranchId]
+GO
+ALTER TABLE [dbo].[JobApplication]  WITH CHECK ADD  CONSTRAINT [FK_JobApplication_Employee_EmployeeId] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employee] ([EmployeeId])
+GO
+ALTER TABLE [dbo].[JobApplication] CHECK CONSTRAINT [FK_JobApplication_Employee_EmployeeId]
+GO
+ALTER TABLE [dbo].[JobApplicationLanguage]  WITH CHECK ADD  CONSTRAINT [FK_JobApplicationLanguage_JobApplication_JobApplicationId] FOREIGN KEY([JobApplicationId])
+REFERENCES [dbo].[JobApplication] ([ApplicationID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[JobApplicationLanguage] CHECK CONSTRAINT [FK_JobApplicationLanguage_JobApplication_JobApplicationId]
+GO
+ALTER TABLE [dbo].[JobApplicationLanguage]  WITH CHECK ADD  CONSTRAINT [FK_JobApplicationLanguage_Language_LanguageId] FOREIGN KEY([LanguageId])
+REFERENCES [dbo].[Language] ([LanguageID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[JobApplicationLanguage] CHECK CONSTRAINT [FK_JobApplicationLanguage_Language_LanguageId]
+GO
+ALTER TABLE [dbo].[JobApplicationReference]  WITH CHECK ADD  CONSTRAINT [FK_JobApplicationReference_JobApplication_JobApplicationId] FOREIGN KEY([JobApplicationId])
+REFERENCES [dbo].[JobApplication] ([ApplicationID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[JobApplicationReference] CHECK CONSTRAINT [FK_JobApplicationReference_JobApplication_JobApplicationId]
+GO
+ALTER TABLE [dbo].[JobApplicationReference]  WITH CHECK ADD  CONSTRAINT [FK_JobApplicationReference_Reference_ReferenceId] FOREIGN KEY([ReferenceId])
+REFERENCES [dbo].[Reference] ([ReferenceID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[JobApplicationReference] CHECK CONSTRAINT [FK_JobApplicationReference_Reference_ReferenceId]
+GO
+ALTER TABLE [dbo].[Log]  WITH CHECK ADD  CONSTRAINT [FK_Log_Employee_EmployeeId] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employee] ([EmployeeId])
+GO
+ALTER TABLE [dbo].[Log] CHECK CONSTRAINT [FK_Log_Employee_EmployeeId]
+GO</value>
+    <comment>v1.0.0</comment>
+  </data>
+</root>

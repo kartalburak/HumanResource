@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace HumanResource.DataAccess.Core
 {
@@ -12,27 +10,63 @@ namespace HumanResource.DataAccess.Core
     {
         [Key]
         public int AdvertisementID { get; set; }
-        public string Description { get; set; }
-        public string JobDescription { get; set; }
-        public string Experience { get; set; }
-        public bool Military { get; set; }
-        public string EducationLevel { get; set; }
-        public string WayOfWorking { get; set; }
-        public string PozitionLevel { get; set; }
-        public int PersonalNumber { get; set; }
-        public string Country { get; set; }
-        public string Department { get; set; }
-        public string Sector { get; set; }
-        public int views { get; set; }
-        public int NumberOfApplication { get; set; }
-        public DateTime EndDate { get; set; }
-        public bool IsActive { get; set; }
-        [DefaultValue(0)]
-        public bool IsDeleted { get; set; }
+        [MaxLength(100)]
+        public string AdvertisementTitle { get; set; }
+        [MaxLength(100)]
+        public string AdvertisementName { get; set; }
+        public DateTime AdvertisementBeginDate { get; set; }
+        public DateTime AdvertisementEndDate { get; set; }
+        [MaxLength(int.MaxValue)]
+        public string AdvertisementJobDescription { get; set; }
+        [MaxLength(int.MaxValue)]
+        public string AdvertisementDescription { get; set; }
+        [MaxLength(500)]
+        public string AdvertisementExperience { get; set; }
+        [MaxLength(100)]
+        public string AdvertisementEducationLevel { get; set; }
+        [MaxLength(100)]
+        public string AdvertisementPositionLevel { get; set; }      
+        [MaxLength(50)]
+        public string AdvertisementWayOfWorking { get; set; }
+        public int AdvertisementPersonelNumber { get; set; }
+        [MaxLength(50)]
+        public string AdvertisementCountry { get; set; }
+        [MaxLength(50)]
+        public string AdvertisementCity { get; set; }
+        [MaxLength(50)]
+        public string AdvertisementMilitary { get; set; }
+        public int AdvertisementViewsCount { get; set; }
+        public bool AdvertisementIsStatus { get; set; }
+        public bool AdvertisementIsDeleted { get; set; }
 
 
-        public virtual IEnumerable<Branch> Branch { get; set; }
 
+        public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<AdvertisementBranch> AdvertisementBranches { get; set; }
+        public virtual ICollection<AdvertisementDepartment> AdvertisementDepartments { get; set; }
 
     }
+
+    //public class AdvertisementEmployee
+    //{
+    //    public int AdvertisementId { get; set; }
+    //    public Advertisement Advertisement { get; set; }
+    //    public int EmployeeId { get; set; }
+    //    public Employee Employee { get; set; }
+    //}
+    public class AdvertisementBranch
+    {
+        public int AdvertisementId { get; set; }
+        public Advertisement Advertisement { get; set; }
+        public int BranchId { get; set; }
+        public Branch Branch { get; set; }
+    }
+    public class AdvertisementDepartment
+    {
+        public int AdvertisementId { get; set; }
+        public Advertisement Advertisement { get; set; }
+        public int DepartmentId { get; set; }
+        public Department Department { get; set; }
+    }
+
 }

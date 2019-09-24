@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -10,20 +11,23 @@ namespace HumanResource.DataAccess.Core
     public class Mission
     {
         [Key]
-        public int ID { get; set; }
-        public int Status { get; set; }
+        public int MissionId { get; set; }
+        [MaxLength(100)]
         public string Missionary { get; set; } //görevi veren
-        public string Definition { get; set; }
-        public DateTime BeginDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public DateTime DeadlineDate { get; set; }
-        public int Note { get; set; }
-        public string SpecialCode1 { get; set; }
-        public string SpecialCode2 { get; set; }
+        public DateTime MissionBeginDate { get; set; }
+        public DateTime MissionEndDate { get; set; }
+        [MaxLength(Int32.MaxValue)]
+        public string MissionNotes { get; set; }
+        [MaxLength(Int32.MaxValue)]
         public string Description { get; set; }
-        public bool IsDeleted { get; set; }
 
-        public virtual IEnumerable<Employee> Employee { get; set; }
+
+        [DefaultValue(1)]
+        public bool MissionStatus { get; set; }
+        [DefaultValue(0)]
+        public bool MissionIsDeleted { get; set; }
+
+        public virtual ICollection<EmployeeMission> EmployeeMissions { get; set; }
     }
 
 

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,92 +10,173 @@ namespace HumanResource.DataAccess.Core
     public class Employee
     {
         [Key]
-        public int EmployeeID { get; set; }
-        public string Password { get; set; }
-        public string Image { get; set; }
-        public string CompanyName { get; set; }
-        public int BranchID { get; set; }
-        public int DepartmentID { get; set; }
-        public double GrossFee { get; set; }  //brüt ücret
-        public int PersonalCode { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public DateTime? Birthdate { get; set; }
-        public DateTime? WorkBeginDateHR { get; set; }
-        public DateTime? WorkBeginDateSGK { get; set; }
-        public DateTime? WorkOutDate { get; set; }
-        public DateTime? RegisterDate { get; set; }
-        public string Job { get; set; }
-        public string Mission { get; set; }
-        public string Telephone { get; set; }
-        public string Phone { get; set; }
-        public string BirthPlace { get; set; }
-        public string TCKNO { get; set; }
-        public string WifeTC { get; set; }
-        public string WifeNameSurname { get; set; }
-        public string WifeBirthPlace { get; set; }
-        public string WifeTelephone { get; set; }
-        public string WifeBirthdate { get; set; }
-        public string WifeAddress { get; set; }
-        public string Y1Closeness { get; set; }
-        public string Y1TC { get; set; }
-        public string Y1NameSurname { get; set; }
-        public string Y1BirthPlace { get; set; }
-        public string Y1Telephone { get; set; }
-        public string Y1Birthdate { get; set; }
-        public string Y1Address { get; set; }
-        public string Y2Yakinligi { get; set; }
-        public string Y2TC { get; set; }
-        public string Y2NameSurname { get; set; }
-        public string Y2BirthPlace { get; set; }
-        public string Y2Telephone { get; set; }
-        public string Y2Birthdate { get; set; }
-        public string Y2Address { get; set; }
-        public string SSKNo { get; set; }
-        public string KanunNo { get; set; }
-        public string SosGuvKod { get; set; }  //ssk,emekli sandığı,bağkur,banka ve diğerleri
-        public string IseGirisDurumu { get; set; }
-        public string IstihdamDurumu { get; set; }
-        public string Tahsil { get; set; }
-        public DateTime? IlkSSKBaslamaTarihi { get; set; }
-        public DateTime? IseGirisTarihi { get; set; }
-        public DateTime? KidemTarihi { get; set; }
-        public DateTime? IstenAyrilisTarihi { get; set; }
-        public string SakatlıkDerecesi { get; set; }
-        public string MezunOlduguOkul { get; set; }
-        public string MezunOlduğuBolum { get; set; }
-        public string TahsilBilgileri { get; set; }
-        public string YabasnciDil1 { get; set; }
-        public string YabancıDil2 { get; set; }
-        public string Notes { get; set; }
-        public string BankNo { get; set; }
-        public string Iban { get; set; }
-        public bool IsDeleted { get; set; }
-        public DateTime? MilitaryDate { get; set; }
-        public string MilitaryStatus { get; set; } //yaptı,yükümsüz,muaf,tecilli
-        public bool IsDrivingLicense { get; set; }
-        public string SpecialCode1 { get; set; }
-        public string SpecialCode2 { get; set; }
-        public string SpecialCode3 { get; set; }
-        public string Postcode { get; set; }
-        public string Village { get; set; }
-        public string Town { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
-        public string Street { get; set; }
-        public string Avenue { get; set; } //cadde
-        public string District { get; set; } //mahalle
-        public string Boulevard { get; set; } //bulvar
-        public string Gender { get; set; }
-        public string BloodGroup { get; set; }
-        public string FatherName { get; set; }
-        public string MotherName { get; set; }
+        public int EmployeeId { get; set; }
+        [ForeignKey("IncapacityReportId")]
+        public int IncapacityReportId { get; set; }
+        [MaxLength(50)]
+        [Required(ErrorMessage = "Personel kodu zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeCode { get; set; }
+        [MaxLength(50)]
+        [Required(ErrorMessage = "Personel kullanıcı adı zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeUsername { get; set; }
+        [MaxLength(100)]
+        [Required(ErrorMessage = "Personel şifresi zorunlu alandır. Boş geçilemez!")]
+        public string EmployeePassword { get; set; }
+        [MaxLength(100)]
+        [Required(ErrorMessage = "Personel ünvanı zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeTitle { get; set; }
+        [MaxLength(20)]
+        [Required(ErrorMessage = "Personel adı zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeName { get; set; }
+        [MaxLength(20)]
+        [Required(ErrorMessage = "Personel soyadı zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeSurname { get; set; }
+        [Required(ErrorMessage = "Personel doğum tarihi zorunlu alandır. Boş geçilemez!")]
+        public DateTime EmployeeBirthdate { get; set; }
+        [MaxLength(20)]
+        [Required(ErrorMessage = "Personel emaili zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeEmail { get; set; }
+        [MaxLength(20)]
+        public string EmployeeCompanyMail { get; set; }
+        [MaxLength(20)]
+        [Required(ErrorMessage = "Personel doğum yeri zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeBirthplace { get; set; }
+        [MaxLength(11)]
+        [Required(ErrorMessage = "Personel telefon numarası zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeTelephone1 { get; set; }
+        [MaxLength(11)]
+        public string EmployeeTelephone2 { get; set; }
+        [Required(ErrorMessage = "Personel sigara bilgisi zorunlu alandır. Boş geçilemez!")]
+        [DefaultValue(0)]
+        public bool EmployeeIsSmoke { get; set; }
+        [MaxLength(20)]
+        [Required(ErrorMessage = "Personel kan grubu bilgisi zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeBloodGroup { get; set; }
+        [MaxLength(11)]
+        [Required(ErrorMessage = "Personel TC kimlik numrası zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeTc { get; set; }
+        [Required(ErrorMessage = "Personel medeni hali bilgisi zorunlu alandır. Boş geçilemez!")]
+        public bool EmployeeMarialStatus { get; set; }
+        [MaxLength(10)]
+        [Required(ErrorMessage = "Personel cinsiyeti zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeGender { get; set; }
+        [MaxLength(20)]
+        [Required(ErrorMessage = "Personel ülke bilgisi zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeCountry { get; set; }
+        [MaxLength(20)]
+        [Required(ErrorMessage = "Personel il bilgisi zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeCity { get; set; }
+        [MaxLength(20)]
+        public string EmployeeStreet { get; set; }
+        [MaxLength(20)]
+        public string EmployeeBuildNo { get; set; }
+        [MaxLength(10)]
+        public string EmployeePostcode { get; set; }
+        [Required(ErrorMessage = "Personel askerlik tarihi zorunlu alandır. Boş geçilemez!")]
+        public DateTime? EmployeeMilitaryDate { get; set; }
+        [MaxLength(20)]
+        [Required(ErrorMessage = "Personel askerlik durumu bilgisi zorunlu alandır. Boş geçilemez!")]
+        public string EmployeeMilitaryStatus { get; set; }
+        [MaxLength(20)]
+        public string EmployeeBankName { get; set; }
+        [MaxLength(20)]
+        public string EmployeeIban { get; set; }
+        [MaxLength(20)]
+        public string EmployeeBankCode { get; set; }
+        [Required(ErrorMessage = "Personel ehliyet bilgisi zorunlu alandır. Boş geçilemez!")]
+        public bool EmployeeIsDrivingLicense { get; set; }
+        [MaxLength(20)]
+        public string EmployeeDrivingLicenseName { get; set; }
+        [MaxLength(250)]
+        public string EmployeeImagePath { get; set; }
+        [Required(ErrorMessage = "Personel kayıt tarihi zorunlu alandır. Boş geçilemez!")]
+        public DateTime EmployeeRegisteredDate { get; set; }
+        [MaxLength(100)]
+        public string EmployeeWifeNameSurname { get; set; }
+        public DateTime EmployeeWifeBirthdate { get; set; }
+        [MaxLength(11)]
+        public string EmployeeWifeTelephone { get; set; }
+        [MaxLength(11)]
+        public string EmployeeWifeTCKN { get; set; }
+        public DateTime EmployeeSSKFirstBeginDate { get; set; }
+        public DateTime EmployeeWorkBeginDate { get; set; }
+        public DateTime EmployeeWorkOutDate { get; set; }
+        [MaxLength(20)]
+        public string EmployeeLanguage1 { get; set; }
+        [MaxLength(20)]
+        public string EmployeeLanguage2 { get; set; }
+        [MaxLength(20)]
+        public string EmployeeLanguage3 { get; set; }
+        [MaxLength(100)]
+        public string EmployeeReferenceNameSurname { get; set; }
+        [MaxLength(500)]
+        public string EmployeeReferenceNotes { get; set; }
+        [MaxLength(11)]
+        public string EmployeeReferenceTelephone { get; set; }
+        public int EmployeeChildrenCount { get; set; }
+        [MaxLength(100)]
+        public string EmployeeGraduationSchool { get; set; }
+        [MaxLength(50)]
+        public string EmployeeGraduationDepartment { get; set; }
+        public decimal EmployeeGraduationScore { get; set; }
+        [MaxLength(100)]
+        public string EmployeeManager { get; set; }
+        [DefaultValue(0)]
+        public bool EmployeeDisabilitySituation { get; set; }
+        [MaxLength(50)]
+        public string EmployeeSGKNumber { get; set; }
+        [MaxLength(Int32.MaxValue)]
+        public string EmployeeNotes { get; set; }
+        [DefaultValue(1)]
+        public bool EmployeeStatus { get; set; }
+        [DefaultValue(0)]
+        public bool EmployeeIsDeleted { get; set; }
 
 
 
-
-
-
+        public virtual ICollection<ActivityEmployee> ActivityEmployees { get; set; }
+        public virtual Advertisement Advertisement { get; set; }
+        public virtual Department Department { get; set; }
+        public virtual Branch Branch { get; set; }
+        public virtual ICollection<EducationEmployee> EducationEmployees { get; set; }
+        public virtual ICollection<AnnouncementEmployee> AnnouncementEmployees { get; set; }
+        public virtual IEnumerable<EmployeeRating> EmployeeRating { get; set; }
+        public virtual IEnumerable<JobApplication> JobApplication { get; set; }
+        public virtual IEnumerable<Log> Log { get; set; }
+        public virtual ICollection<EmployeeMessage> EmployeeMessages { get; set; }
+        public virtual ICollection<EmployeeMission> EmployeeMissions { get; set; }
+        public virtual ICollection<EmployeePermit> EmployeePermits { get; set; }
+        public virtual ICollection<EmployeeReference> EmployeeReferences { get; set; }
 
     }
+
+    public class EmployeeMessage
+    {
+        public int EmployeeId { get; set; }
+        public Employee Employee { get; set; }
+        public int MessageId { get; set; }
+        public Message Message { get; set; }
+    }
+    public class EmployeeMission
+    {
+        public int EmployeeId { get; set; }
+        public Employee Employee { get; set; }
+        public int MissionId { get; set; }
+        public Mission Mission { get; set; }
+    }
+    public class EmployeePermit
+    {
+        public int EmployeeId { get; set; }
+        public Employee Employee { get; set; }
+        public int PermitId { get; set; }
+        public Permit Permit { get; set; }
+    }
+    public class EmployeeReference
+    {
+        public int EmployeeId { get; set; }
+        public Employee Employee { get; set; }
+        public int ReferenceId { get; set; }
+        public Reference Reference { get; set; }
+    }
+
 }

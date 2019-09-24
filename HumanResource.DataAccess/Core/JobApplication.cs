@@ -12,7 +12,6 @@ namespace HumanResource.DataAccess.Core
     {
         [Key]
         public int ApplicationID { get; set; }
-        public int UserID { get; set; }
         public string NameSurname { get; set; }
         public string Birthplace { get; set; }
         public DateTime Birthdate { get; set; }
@@ -32,17 +31,38 @@ namespace HumanResource.DataAccess.Core
         public string LicenseClass { get; set; }
         public bool IsCriminalRecord { get; set; }
         public DateTime LicenseDate { get; set; }
-
         public string SchoolName { get; set; }
         public string SchoolCity { get; set; }
         public string SchoolDegree { get; set; }
         public double ExpectedSalary { get; set; }
+
+        [DefaultValue(1)]
+        public bool JobApplicationStatus { get; set; }
         [DefaultValue(0)]
-        public bool IsDeleted { get; set; }
+        public bool JobApplicationIsDeleted { get; set; }
 
-        
-        
+      
         
 
+        public  virtual ICollection<JobApplicationLanguage> JobApplicationLanguages { get; set; }
+        public virtual Branch Branch { get; set; }
+        public virtual ICollection<JobApplicationReference> JobApplicationReferences { get; set; }
+        public virtual Employee Employee { get; set; }
+
+    }
+
+    public class JobApplicationLanguage
+    {
+        public int JobApplicationId { get; set; }
+        public JobApplication JobApplication { get; set; }
+        public int LanguageId { get; set; }
+        public Language Language { get; set; }
+    }
+    public class JobApplicationReference
+    {
+        public int JobApplicationId { get; set; }
+        public JobApplication JobApplication { get; set; }
+        public int ReferenceId { get; set; }
+        public Reference Reference { get; set; }
     }
 }

@@ -1,30 +1,36 @@
 ﻿using HumanResource.DataAccess;
+using HumanResource.DataAccess.Interfaces;
+using HumanResource.DataAccess.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace HumanResource
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
+        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration)
         {
-
-            services.AddDbContextPool<HumanResourceContext>(options => options.UseSqlServer("HumanResourceDbContext"));
-
-            services.AddMvc();
-
-
-            /// Adding Dependency properties transient,singleton,scoped
-
-
+            Configuration = configuration;
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContextPool<HumanResourceContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("HumanResourceDbContext")));
+
+            services.AddScoped<IEmployee, EmployeeRepository>();
+            services.AddScoped<IDepartment, DepartmentRepository>();
+
+
+
+            services.AddMvc();
+        }
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -32,21 +38,20 @@ namespace HumanResource
                 app.UseDeveloperExceptionPage();
             }
 
-
-            app.UseFileServer();
-
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
-            app.UseCookiePolicy();
-           
+            //app.UseMvcWithDefaultRoute();
 
 
-
-
-            app.Run(async (context) =>
+            app.UseMvc(routes =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}"
+                );
+               
             });
+
+
         }
     }
 }

@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace HumanResource.DataAccess.Core
 {
-    [Table("PersonalRating")]
+    [Table("EmployeeRating")]
     public class EmployeeRating
     {
         [Key]
-        public int ID { get; set; }
-        [Required]
-        public int PersonalID { get; set; }
-        public DateTime RateDate { get; set; }
-        public string Evaluative { get; set; } //değerlendiren
-
-        public string Result { get; set; }
+        public int EmployeeRatingId { get; set; }
+        [MaxLength(Int32.MaxValue)]
+        public string EmployeeRatingEvaluative { get; set; }
+        public DateTime EmployeeRatingRateDate { get; set; } 
+        [MaxLength(Int32.MaxValue)]
+        public string EmployeeRatingResult { get; set; }
+        [DefaultValue(1)]
+        public bool EmployeeRatingStatus { get; set; }
         [DefaultValue(0)]
-        public bool IsDeleted { get; set; }
+        public bool EmployeeIsDeleted { get; set; }
+
+
+        public virtual Employee Employee { get; set; }
 
 
     }

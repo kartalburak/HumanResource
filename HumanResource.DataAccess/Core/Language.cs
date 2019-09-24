@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,17 +10,18 @@ namespace HumanResource.DataAccess.Core
     {
         [Key]
         public int LanguageID { get; set; }
-        public int BasvuruID { get; set; }
         public string LanguageName { get; set; }
-        public string Read { get; set; }
-        public string Write { get; set; }
-        public string Speak { get; set; }
-        public string Understand { get; set; }
+        public string LanguageRead { get; set; }
+        public string LanguageWrite { get; set; }
+        public string LanguageSpeak { get; set; }
+        public string LanguageUnderstand { get; set; }
+        [DefaultValue(1)]
+        public bool LanguageStatus { get; set; }
         [DefaultValue(0)]
-        public bool IsDeleted { get; set; }
+        public bool LanguageIsDeleted { get; set; }
 
 
-
+        public virtual ICollection<JobApplicationLanguage> JobApplicationLanguages { get; set; }
 
 
 

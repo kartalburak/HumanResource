@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace HumanResource.DataAccess.Core
 {
@@ -11,18 +9,23 @@ namespace HumanResource.DataAccess.Core
     public class Log
     {
         [Key]
-        public int LogID { get; set; }
+        public int LogId { get; set; }
         [Required]
-        public DateTime Date { get; set; }
-        [Required]
-        public int EmployeeID { get; set; }
-        public string Content { get; set; }
-        public string ActionName { get; set; }
-        public string ControllerName { get; set; }
-
+        public DateTime LogDate { get; set; }
+        [MaxLength(50)]
+        public string LogMessage { get; set; }
+        [MaxLength(50)]
+        public string LogActionName { get; set; }
+        [MaxLength(50)]
+        public string LogControllerName { get; set; }
+        [MaxLength(50)]
+        public string LogType { get; set; }
+        [DefaultValue(1)]
+        public bool LogStatus { get; set; }
         [DefaultValue(0)]
-        public bool IsDeleted { get; set; }
+        public bool LogIsDeleted { get; set; }
 
 
+        public virtual Employee Employee { get; set; }
     }
 }
