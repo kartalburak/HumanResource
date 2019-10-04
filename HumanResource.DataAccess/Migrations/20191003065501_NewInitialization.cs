@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HumanResource.DataAccess.Migrations
 {
-    public partial class HumanResourceMigration : Migration
+    public partial class NewInitialization : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -279,13 +279,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.ActivityId,
                         principalTable: "Activity",
                         principalColumn: "ActivityID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ActivityBranch_Branch_BranchId",
                         column: x => x.BranchId,
                         principalTable: "Branch",
                         principalColumn: "BranchId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -303,13 +303,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.AdvertisementId,
                         principalTable: "Advertisement",
                         principalColumn: "AdvertisementID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AdvertisementBranch_Branch_BranchId",
                         column: x => x.BranchId,
                         principalTable: "Branch",
                         principalColumn: "BranchId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -327,13 +327,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.AnnouncementId,
                         principalTable: "Announcement",
                         principalColumn: "AnnouncementID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AnnouncementBranch_Branch_BranchId",
                         column: x => x.BranchId,
                         principalTable: "Branch",
                         principalColumn: "BranchId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -351,13 +351,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.ActivityId,
                         principalTable: "Activity",
                         principalColumn: "ActivityID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ActivityDepartment_Department_DepartmentId",
                         column: x => x.DepartmentId,
                         principalTable: "Department",
                         principalColumn: "DepartmentId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -375,13 +375,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.AdvertisementId,
                         principalTable: "Advertisement",
                         principalColumn: "AdvertisementID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AdvertisementDepartment_Department_DepartmentId",
                         column: x => x.DepartmentId,
                         principalTable: "Department",
                         principalColumn: "DepartmentId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -399,13 +399,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.AnnouncementId,
                         principalTable: "Announcement",
                         principalColumn: "AnnouncementID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AnnouncementDepartment_Department_DepartmentId",
                         column: x => x.DepartmentId,
                         principalTable: "Department",
                         principalColumn: "DepartmentId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -423,13 +423,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.BranchId,
                         principalTable: "Branch",
                         principalColumn: "BranchId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_BranchDepartment_Department_DepartmentId",
                         column: x => x.DepartmentId,
                         principalTable: "Department",
                         principalColumn: "DepartmentId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -446,11 +446,11 @@ namespace HumanResource.DataAccess.Migrations
                     EmployeeName = table.Column<string>(maxLength: 20, nullable: false),
                     EmployeeSurname = table.Column<string>(maxLength: 20, nullable: false),
                     EmployeeBirthdate = table.Column<DateTime>(nullable: false),
-                    EmployeeEmail = table.Column<string>(maxLength: 20, nullable: false),
-                    EmployeeCompanyMail = table.Column<string>(maxLength: 20, nullable: true),
+                    EmployeeEmail = table.Column<string>(maxLength: 30, nullable: false),
+                    EmployeeCompanyMail = table.Column<string>(maxLength: 30, nullable: true),
                     EmployeeBirthplace = table.Column<string>(maxLength: 20, nullable: false),
-                    EmployeeTelephone1 = table.Column<string>(maxLength: 11, nullable: false),
-                    EmployeeTelephone2 = table.Column<string>(maxLength: 11, nullable: true),
+                    EmployeeTelephone1 = table.Column<string>(maxLength: 15, nullable: false),
+                    EmployeeTelephone2 = table.Column<string>(maxLength: 15, nullable: true),
                     EmployeeIsSmoke = table.Column<bool>(nullable: false),
                     EmployeeBloodGroup = table.Column<string>(maxLength: 20, nullable: false),
                     EmployeeTc = table.Column<string>(maxLength: 11, nullable: false),
@@ -464,7 +464,7 @@ namespace HumanResource.DataAccess.Migrations
                     EmployeeMilitaryDate = table.Column<DateTime>(nullable: false),
                     EmployeeMilitaryStatus = table.Column<string>(maxLength: 20, nullable: false),
                     EmployeeBankName = table.Column<string>(maxLength: 20, nullable: true),
-                    EmployeeIban = table.Column<string>(maxLength: 20, nullable: true),
+                    EmployeeIban = table.Column<string>(maxLength: 30, nullable: true),
                     EmployeeBankCode = table.Column<string>(maxLength: 20, nullable: true),
                     EmployeeIsDrivingLicense = table.Column<bool>(nullable: false),
                     EmployeeDrivingLicenseName = table.Column<string>(maxLength: 20, nullable: true),
@@ -472,7 +472,7 @@ namespace HumanResource.DataAccess.Migrations
                     EmployeeRegisteredDate = table.Column<DateTime>(nullable: false),
                     EmployeeWifeNameSurname = table.Column<string>(maxLength: 100, nullable: true),
                     EmployeeWifeBirthdate = table.Column<DateTime>(nullable: false),
-                    EmployeeWifeTelephone = table.Column<string>(maxLength: 11, nullable: true),
+                    EmployeeWifeTelephone = table.Column<string>(maxLength: 15, nullable: true),
                     EmployeeWifeTCKN = table.Column<string>(maxLength: 11, nullable: true),
                     EmployeeSSKFirstBeginDate = table.Column<DateTime>(nullable: false),
                     EmployeeWorkBeginDate = table.Column<DateTime>(nullable: false),
@@ -482,12 +482,12 @@ namespace HumanResource.DataAccess.Migrations
                     EmployeeLanguage3 = table.Column<string>(maxLength: 20, nullable: true),
                     EmployeeReferenceNameSurname = table.Column<string>(maxLength: 100, nullable: true),
                     EmployeeReferenceNotes = table.Column<string>(maxLength: 500, nullable: true),
-                    EmployeeReferenceTelephone = table.Column<string>(maxLength: 11, nullable: true),
+                    EmployeeReferenceTelephone = table.Column<string>(maxLength: 15, nullable: true),
                     EmployeeChildrenCount = table.Column<int>(nullable: false),
-                    EmployeeGraduationSchool = table.Column<string>(maxLength: 100, nullable: true),
-                    EmployeeGraduationDepartment = table.Column<string>(maxLength: 50, nullable: true),
-                    EmployeeGraduationScore = table.Column<decimal>(nullable: false),
-                    EmployeeManager = table.Column<string>(maxLength: 100, nullable: true),
+                    EmployeeGraduationSchool = table.Column<string>(maxLength: 100, nullable: false),
+                    EmployeeGraduationDepartment = table.Column<string>(maxLength: 50, nullable: false),
+                    EmployeeGraduationScore = table.Column<double>(nullable: false),
+                    EmployeeManager = table.Column<string>(maxLength: 100, nullable: false),
                     EmployeeDisabilitySituation = table.Column<bool>(nullable: false),
                     EmployeeSGKNumber = table.Column<string>(maxLength: 50, nullable: true),
                     EmployeeNotes = table.Column<string>(maxLength: 2147483647, nullable: true),
@@ -535,13 +535,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.BranchId,
                         principalTable: "Branch",
                         principalColumn: "BranchId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_BranchEducation_Education_EducationId",
                         column: x => x.EducationId,
                         principalTable: "Education",
                         principalColumn: "EducationID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -559,13 +559,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.DepartmentId,
                         principalTable: "Department",
                         principalColumn: "DepartmentId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_DepartmentEducation_Education_EducationId",
                         column: x => x.EducationId,
                         principalTable: "Education",
                         principalColumn: "EducationID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -583,13 +583,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.ActivityId,
                         principalTable: "Activity",
                         principalColumn: "ActivityID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ActivityEmployee_Employee_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
                         principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -607,13 +607,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.AnnouncementId,
                         principalTable: "Announcement",
                         principalColumn: "AnnouncementID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AnnouncementEmployee_Employee_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
                         principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -631,13 +631,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.EducationId,
                         principalTable: "Education",
                         principalColumn: "EducationID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_EducationEmployee_Employee_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
                         principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -655,13 +655,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
                         principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_EmployeeMessage_Message_MessageId",
                         column: x => x.MessageId,
                         principalTable: "Message",
                         principalColumn: "MessageId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -679,13 +679,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
                         principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_EmployeeMission_Mission_MissionId",
                         column: x => x.MissionId,
                         principalTable: "Mission",
                         principalColumn: "MissionId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -703,13 +703,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
                         principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_EmployeePermit_Permit_PermitId",
                         column: x => x.PermitId,
                         principalTable: "Permit",
                         principalColumn: "PermitId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -751,13 +751,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
                         principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_EmployeeReference_Reference_ReferenceId",
                         column: x => x.ReferenceId,
                         principalTable: "Reference",
                         principalColumn: "ReferenceID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -852,13 +852,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.JobApplicationId,
                         principalTable: "JobApplication",
                         principalColumn: "ApplicationID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_JobApplicationLanguage_Language_LanguageId",
                         column: x => x.LanguageId,
                         principalTable: "Language",
                         principalColumn: "LanguageID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -876,13 +876,13 @@ namespace HumanResource.DataAccess.Migrations
                         column: x => x.JobApplicationId,
                         principalTable: "JobApplication",
                         principalColumn: "ApplicationID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_JobApplicationReference_Reference_ReferenceId",
                         column: x => x.ReferenceId,
                         principalTable: "Reference",
                         principalColumn: "ReferenceID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

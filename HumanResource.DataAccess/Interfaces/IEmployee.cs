@@ -1,6 +1,6 @@
 ﻿using HumanResource.DataAccess.Core;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace HumanResource.DataAccess.Interfaces
 {

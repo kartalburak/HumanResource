@@ -1,8 +1,18 @@
 ﻿@{
     Layout = "";
 }
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using HumanResource.Controllers
+@using HumanResource.Resources
+@using HumanResource.Utils
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+
+@inject IStringLocalizer<HomeController> Localizer
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 
     <meta charset="utf-8">
@@ -24,51 +34,58 @@
                                 <img src="~/images/logo.svg">
                             </div>
                             @*<h4>Hello! let's get started</h4>
-                            <h6 class="font-weight-light">Sign in to continue.</h6>*@
-                            <form class="pt-3">
+                                <h6 class="font-weight-light">Sign in to continue.</h6>*@
+                            <form class="pt-3" asp-action="Login" asp-controller="Home" method="post">
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Kullanıcı Adı">
+                                    <input type="text" class="form-control form-control-lg" name="EmployeeUsername" id="EmployeeUsername" placeholder=@Localizer["KullanıcıAdı"]>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Şifre">
+                                    <input type="password" class="form-control form-control-lg" name="EmployeePassword" id="EmployeePassword" placeholder=@Localizer["Şifre"]>
                                 </div>
                                 <div class="mt-3">
-                                    <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="~/index.html">Giriş Yap</a>
+                                    <input type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="btnlogin" name="btnlogin" value="@Localizer["GirişYap"]" />
+                                    @*<a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">@Localizer["GirişYap"]</a>*@
                                 </div>
                                 <div class="my-2 d-flex justify-content-between align-items-center">
                                     <div class="form-check">
                                         <label class="form-check-label text-muted">
-                                            <input type="checkbox" class="form-check-input">
-                                            Oturumumu Açık tut
+                                            <input type="checkbox" value="true" class="form-check-input" id="IsChecked" name="IsChecked">
+                                            @Localizer["OturumumuAçıktut"]
                                         </label>
+                                        <input name="IsChecked" type="hidden" value="false">
                                     </div>
-                                    <a href="#" class="auth-link text-black">Şifreni mi unuttun?</a>
+                                    <a href="#" class="auth-link text-black">
+                                        @Localizer["Şifrenimiunuttun"]?
+                                    </a>
                                 </div>
                                 @*<div class="mb-2">
                                         <button type="button" class="btn btn-block btn-facebook auth-form-btn">
                                             <i class="mdi mdi-facebook mr-2"></i>Connect using facebook
                                         </button>
                                     </div>*@
-                                <div class="text-center mt-4 font-weight-light">
-                                    Hesabınız yok mu? <a href="~/pages/samples/register.html" class="text-primary">Kayıt Olun</a>
-                                </div>
+
+
+
+
+                                @if (!string.IsNullOrEmpty(ViewBag.Login))
+                                {
+                                    <div class="text-center mt-4 font-weight-light">
+                                        @Html.Label("Error", ViewBag.Login, new { @class = "help-block text-danger", style = "font-size:14px" })
+                                    </div>
+                                }
+
+
+
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- content-wrapper ends -->
         </div>
-        <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
     <script src="~/vendors/js/vendor.bundle.base.js"></script>
     <script src="~/vendors/js/vendor.bundle.addons.js"></script>
-    <!-- endinject -->
-    <!-- inject:js -->
     <script src="~/js/off-canvas.js"></script>
     <script src="~/js/misc.js"></script>
-    <!-- endinject -->
 </body>
 </html>

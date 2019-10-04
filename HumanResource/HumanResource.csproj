@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\.DS_Store" />
     <None Include="wwwroot\.gitignore" />
     <None Include="wwwroot\CHANGELOG.md" />
@@ -169,6 +165,15 @@
     <None Include="wwwroot\vendors\iconfonts\mdi\scss\_variables.scss" />
     <None Include="wwwroot\vendors\js\vendor.bundle.addons.js" />
     <None Include="wwwroot\vendors\js\vendor.bundle.base.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Controllers.HomeController.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Controllers.HomeController.tr-TR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

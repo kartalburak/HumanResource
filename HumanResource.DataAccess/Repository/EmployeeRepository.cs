@@ -1,7 +1,9 @@
 ﻿using HumanResource.DataAccess.Core;
 using HumanResource.DataAccess.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HumanResource.DataAccess.Repository
 {
@@ -50,7 +52,9 @@ namespace HumanResource.DataAccess.Repository
 
         public IEnumerable<Employee> GetAll()
         {
-            return _humanResourceContext.Employees;
+
+            return _humanResourceContext.Employees.AsNoTracking().ToList();
+
         }
 
         public Employee GetById(int id)
@@ -62,5 +66,6 @@ namespace HumanResource.DataAccess.Repository
         {
             throw new NotImplementedException();
         }
+
     }
 }

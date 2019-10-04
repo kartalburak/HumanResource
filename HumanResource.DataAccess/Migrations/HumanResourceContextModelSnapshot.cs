@@ -439,7 +439,7 @@ namespace HumanResource.DataAccess.Migrations
                         .HasMaxLength(50);
 
                     b.Property<string>("EmployeeCompanyMail")
-                        .HasMaxLength(20);
+                        .HasMaxLength(30);
 
                     b.Property<string>("EmployeeCountry")
                         .IsRequired()
@@ -452,22 +452,24 @@ namespace HumanResource.DataAccess.Migrations
 
                     b.Property<string>("EmployeeEmail")
                         .IsRequired()
-                        .HasMaxLength(20);
+                        .HasMaxLength(30);
 
                     b.Property<string>("EmployeeGender")
                         .IsRequired()
                         .HasMaxLength(10);
 
                     b.Property<string>("EmployeeGraduationDepartment")
+                        .IsRequired()
                         .HasMaxLength(50);
 
                     b.Property<string>("EmployeeGraduationSchool")
+                        .IsRequired()
                         .HasMaxLength(100);
 
-                    b.Property<decimal>("EmployeeGraduationScore");
+                    b.Property<double>("EmployeeGraduationScore");
 
                     b.Property<string>("EmployeeIban")
-                        .HasMaxLength(20);
+                        .HasMaxLength(30);
 
                     b.Property<string>("EmployeeImagePath")
                         .HasMaxLength(250);
@@ -488,12 +490,12 @@ namespace HumanResource.DataAccess.Migrations
                         .HasMaxLength(20);
 
                     b.Property<string>("EmployeeManager")
+                        .IsRequired()
                         .HasMaxLength(100);
 
                     b.Property<bool>("EmployeeMarialStatus");
 
-                    b.Property<DateTime?>("EmployeeMilitaryDate")
-                        .IsRequired();
+                    b.Property<DateTime>("EmployeeMilitaryDate");
 
                     b.Property<string>("EmployeeMilitaryStatus")
                         .IsRequired()
@@ -520,7 +522,7 @@ namespace HumanResource.DataAccess.Migrations
                         .HasMaxLength(500);
 
                     b.Property<string>("EmployeeReferenceTelephone")
-                        .HasMaxLength(11);
+                        .HasMaxLength(15);
 
                     b.Property<DateTime>("EmployeeRegisteredDate");
 
@@ -544,10 +546,10 @@ namespace HumanResource.DataAccess.Migrations
 
                     b.Property<string>("EmployeeTelephone1")
                         .IsRequired()
-                        .HasMaxLength(11);
+                        .HasMaxLength(15);
 
                     b.Property<string>("EmployeeTelephone2")
-                        .HasMaxLength(11);
+                        .HasMaxLength(15);
 
                     b.Property<string>("EmployeeTitle")
                         .IsRequired()
@@ -566,7 +568,7 @@ namespace HumanResource.DataAccess.Migrations
                         .HasMaxLength(11);
 
                     b.Property<string>("EmployeeWifeTelephone")
-                        .HasMaxLength(11);
+                        .HasMaxLength(15);
 
                     b.Property<DateTime>("EmployeeWorkBeginDate");
 
@@ -992,12 +994,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Activity", "Activity")
                         .WithMany("ActivityBranches")
                         .HasForeignKey("ActivityId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Branch", "Branch")
                         .WithMany("ActivityBranches")
                         .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.ActivityDepartment", b =>
@@ -1005,12 +1007,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Activity", "Activity")
                         .WithMany("ActivityDepartments")
                         .HasForeignKey("ActivityId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Department", "Department")
                         .WithMany("ActivityDepartments")
                         .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.ActivityEmployee", b =>
@@ -1018,12 +1020,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Activity", "Activity")
                         .WithMany("ActivityEmployees")
                         .HasForeignKey("ActivityId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Employee", "Employee")
                         .WithMany("ActivityEmployees")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.AdvertisementBranch", b =>
@@ -1031,12 +1033,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Advertisement", "Advertisement")
                         .WithMany("AdvertisementBranches")
                         .HasForeignKey("AdvertisementId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Branch", "Branch")
                         .WithMany("AdvertisementBranches")
                         .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.AdvertisementDepartment", b =>
@@ -1044,12 +1046,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Advertisement", "Advertisement")
                         .WithMany("AdvertisementDepartments")
                         .HasForeignKey("AdvertisementId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Department", "Department")
                         .WithMany("AdvertisementDepartments")
                         .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.AnnouncementBranch", b =>
@@ -1057,12 +1059,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Announcement", "Announcement")
                         .WithMany("AnnouncementBranches")
                         .HasForeignKey("AnnouncementId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Branch", "Branch")
                         .WithMany("AnnouncementBranches")
                         .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.AnnouncementDepartment", b =>
@@ -1070,12 +1072,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Announcement", "Announcement")
                         .WithMany("AnnouncementDepartments")
                         .HasForeignKey("AnnouncementId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Department", "Department")
                         .WithMany("AnnouncementDepartments")
                         .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.AnnouncementEmployee", b =>
@@ -1083,12 +1085,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Announcement", "Announcement")
                         .WithMany("AnnouncementEmployees")
                         .HasForeignKey("AnnouncementId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Employee", "Employee")
                         .WithMany("AnnouncementEmployees")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.BranchDepartment", b =>
@@ -1096,12 +1098,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Branch", "Branch")
                         .WithMany("BranchDepartments")
                         .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Department", "Department")
                         .WithMany("BranchDepartments")
                         .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.BranchEducation", b =>
@@ -1109,12 +1111,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Branch", "Branch")
                         .WithMany("BranchEducations")
                         .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Education", "Education")
                         .WithMany("BranchEducations")
                         .HasForeignKey("EducationId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.DepartmentEducation", b =>
@@ -1122,12 +1124,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Department", "Department")
                         .WithMany("DepartmentEducations")
                         .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Education", "Education")
                         .WithMany("DepartmentEducations")
                         .HasForeignKey("EducationId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.EducationEmployee", b =>
@@ -1135,12 +1137,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Education", "Education")
                         .WithMany("EducationEmployees")
                         .HasForeignKey("EducationId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Employee", "Employee")
                         .WithMany("EducationEmployees")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.Employee", b =>
@@ -1163,12 +1165,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Employee", "Employee")
                         .WithMany("EmployeeMessages")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Message", "Message")
                         .WithMany("EmployeeMessages")
                         .HasForeignKey("MessageId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.EmployeeMission", b =>
@@ -1176,12 +1178,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Employee", "Employee")
                         .WithMany("EmployeeMissions")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Mission", "Mission")
                         .WithMany("EmployeeMissions")
                         .HasForeignKey("MissionId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.EmployeePermit", b =>
@@ -1189,12 +1191,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Employee", "Employee")
                         .WithMany("EmployeePermits")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Permit", "Permit")
                         .WithMany("EmployeePermits")
                         .HasForeignKey("PermitId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.EmployeeRating", b =>
@@ -1209,12 +1211,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.Employee", "Employee")
                         .WithMany("EmployeeReferences")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Reference", "Reference")
                         .WithMany("EmployeeReferences")
                         .HasForeignKey("ReferenceId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.JobApplication", b =>
@@ -1233,12 +1235,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.JobApplication", "JobApplication")
                         .WithMany("JobApplicationLanguages")
                         .HasForeignKey("JobApplicationId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Language", "Language")
                         .WithMany("JobApplicationLanguages")
                         .HasForeignKey("LanguageId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.JobApplicationReference", b =>
@@ -1246,12 +1248,12 @@ namespace HumanResource.DataAccess.Migrations
                     b.HasOne("HumanResource.DataAccess.Core.JobApplication", "JobApplication")
                         .WithMany("JobApplicationReferences")
                         .HasForeignKey("JobApplicationId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("HumanResource.DataAccess.Core.Reference", "Reference")
                         .WithMany("JobApplicationReferences")
                         .HasForeignKey("ReferenceId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("HumanResource.DataAccess.Core.Log", b =>

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using HumanResource.DataAccess.Core;
+﻿using HumanResource.DataAccess.Core;
 using Microsoft.EntityFrameworkCore;
 
 namespace HumanResource.DataAccess
@@ -12,6 +11,8 @@ namespace HumanResource.DataAccess
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Employee>(entity => { entity.HasKey(e => e.EmployeeId); });
+
 
             #region RelationShipOnTables
 
@@ -117,10 +118,6 @@ namespace HumanResource.DataAccess
 
 
             #endregion
-
-
-
-
 
         }
 

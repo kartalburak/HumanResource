@@ -1,6 +1,6 @@
 ﻿namespace HumanResource.Business
 {
-    public class PersonelListModel
+    public class EmployeeListModel
     {
         public string Name { get; set; }
 

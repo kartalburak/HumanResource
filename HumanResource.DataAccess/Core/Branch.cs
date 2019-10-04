@@ -10,6 +10,7 @@ namespace HumanResource.DataAccess.Core
     {
         [ForeignKey("BranchId")]
         public int BranchId { get; set; }
+        public int EmployeeId { get; set; }
         [Required]
         [MaxLength(100)]
         public string BranchName { get; set; }
@@ -38,7 +39,7 @@ namespace HumanResource.DataAccess.Core
         public virtual ICollection<BranchDepartment> BranchDepartments { get; set; }
         public virtual ICollection<AdvertisementBranch> AdvertisementBranches { get; set; }
         public virtual ICollection<AnnouncementBranch> AnnouncementBranches { get; set; }
-        public virtual IEnumerable<Employee> Employee { get; set; }
+        public virtual ICollection<Employee> Employee { get; set; }
 
     }
 

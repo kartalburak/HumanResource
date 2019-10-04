@@ -14,14 +14,14 @@ namespace HumanResource.Business
             _employee = employee;
             _department = department;
         }
-        public IEnumerable<PersonelListModel> GetEmployees()
+        public IEnumerable<EmployeeListModel> GetEmployees()
         {
-            List<Employee> employees = _employee.GetAll().ToList();
+            IEnumerable<Employee> employees = _employee.GetAll().ToList();
             List<Department> departments = _department.GetAll().ToList();
 
 
             var model = from f in employees
-                        select new PersonelListModel()
+                        select new EmployeeListModel()
                         {
                             Name = f.EmployeeName,
                             Surname = f.EmployeeSurname,
@@ -55,7 +55,22 @@ namespace HumanResource.Business
 
         }
 
+        public Employee GetEmployeeByUsername(string username)
+        {
+            if (string.IsNullOrEmpty(username)) return null;
+            IEnumerable<Employee> employees = _employee.GetAll();
+            return employees.FirstOrDefault(x => x.EmployeeUsername == username);
 
 
+        }
+
+        public Employee CheckUsernameAndPassword(string username, string password)
+        {
+            Employee employee = _employee.GetAll().Where(x => x.EmployeeUsername == username & x.EmployeePassword == password).FirstOrDefault();
+
+            return employee == null ? null : employee;
+
+
+        }
     }
 }
